@@ -1,0 +1,33 @@
+<div class="container" style="text-align: center;">
+
+    <div class="row" style="text-align: center;">
+        <button  [routerLink]="['/doctorPrincipal']" type="button" class="btn btn-outline-info">Menu Principal</button>
+        <h1 class="display-5">Top Mejores Doctores</h1>  
+         
+      </div>
+      <img src="assets/doctorLogo.png" width="60" height="60" id="icon" alt="User Icon" /> 
+      <br>
+      <br>
+      <br>
+    <table class="table table-sm">
+        <thead>
+          <tr>
+            <th scope="col">Doctor</th>
+            <th scope="col">Nombre </th>
+            <th scope="col">Correo</th>
+            <th scope="col">Citas Atendidas</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let doctor of listadoTop">
+            <th scope="row">{{doctor.usuario}}</th>
+            <td>{{doctor.nombre}}</td>
+            <td>{{doctor.correo}}</td>
+            <td>{{doctor.citasAtendidas}}</td>
+            
+          </tr>
+         
+        </tbody>
+      </table>
+    </div>

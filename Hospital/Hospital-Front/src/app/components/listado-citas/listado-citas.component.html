@@ -1,0 +1,38 @@
+<div class="container" style="text-align: center;">
+
+<div class="row" style="text-align: center;">
+    <button  [routerLink]="['/principal']" type="button" class="btn btn-outline-info">Menu Principal</button>
+    <h1 class="display-5">Listado De Citas</h1>  
+     
+  </div>
+  <img src="assets/listadoCitaLogo.png" width="60" height="60" id="icon" alt="User Icon" /> 
+  <br>
+  <br>
+  <br>
+<table class="table table-sm">
+    <thead>
+      <tr>
+        <th scope="col">Paciente</th>
+        <th scope="col">Fecha </th>
+        <th scope="col">Hora</th>
+        <th scope="col">Motivo</th>
+        <th scope="col">Doctor</th>
+        <th scope="col">Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cita of listaCitas">
+        <th scope="row">{{cita.nombrePaciente}}</th>
+        <td>{{cita.fecha}}</td>
+        <td>{{cita.hora}}</td>
+        <td>{{cita.motivo}}</td>
+        <td>{{cita.doctor}}</td>
+        <td *ngIf="cita.estado == 'Rechazado' " style="color: red;">{{cita.estado}}</td>
+        <td *ngIf="cita.estado == 'Aceptado' " style="color: green;">{{cita.estado}}</td>
+        <td *ngIf="cita.estado == 'Pendiente' " style="color: blue;">{{cita.estado}}</td>
+        <td *ngIf="cita.estado == 'Completada' " style="color: black;">{{cita.estado}}</td>
+      </tr>
+     
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,29 @@
+<div class="container" style="text-align: center;">
+
+    <div class="row" style="text-align: center;">
+        <button  [routerLink]="['/principal']" type="button" class="btn btn-outline-info">Menu Principal</button>
+        <h1 class="display-5">Mis Pedidos</h1>  
+         
+      </div>
+      <img src="assets/pedidoMedicina.png" width="60" height="60" id="icon" alt="User Icon" /> 
+      <br>
+      <br>
+      <br>
+    <table  class="table table-sm">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre </th>
+            <th scope="col">Total</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pedido of listaPedidos">
+            <th scope="row">{{pedido.idComprador}}</th>
+            <td>{{pedido.nombreComprador}}</td>
+            <td>{{pedido.total}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>

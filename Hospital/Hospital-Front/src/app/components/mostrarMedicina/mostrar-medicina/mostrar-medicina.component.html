@@ -1,0 +1,63 @@
+<div class="container" style="text-align: center;">
+  
+
+  <div class="" style="text-align: center;">
+    <button [routerLink]="['/principal']" type="button" class="btn btn-outline-info">Menu Principal</button>
+    <button  [routerLink]="['/verPedido']" type="button" class="btn btn-outline-warning">Pedidos Realizados</button>
+    
+    <h1 class="display-5">Medicamentos</h1>
+
+  </div>
+
+  
+  <img src="assets/cajaMedicina.png" width="60" height="60" id="icon" alt="User Icon" />
+  <br>
+
+  <br>
+  <br>
+  <table class="table table-sm">
+    <thead>
+      <tr>
+        <th scope="col">Medicamento</th>
+        <th scope="col">Cantidad Disponible </th>
+        <th scope="col">Precio</th>
+        <th scope="col">Cantidad Solicitada</th>
+
+        <th scope="col">Subtotal</th>
+
+        <th>No</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="text-align: center;" *ngFor="let medicina of listaMedicamento;index as i">
+        <th scope="row">{{medicina.nombreMedicamento}}</th>
+        <td>{{medicina.cantidadDisponible}}</td>
+        <td>{{medicina.precio}}</td>
+        <td>{{medicina.cantidadSolicitada}}</td>
+        <td>{{medicina.subTotal}}</td>
+
+
+        <td><button *ngIf="medicina.cantidadDisponible == 0" disabled type="button"
+            (click)="aumentar(i,medicina.nombreMedicamento)" class="btn btn-outline-success">+</button>
+
+
+          <button *ngIf="medicina.cantidadDisponible> 0 " type="button" (click)="aumentar(i,medicina.nombreMedicamento)"
+            class="btn btn-outline-success">+</button>
+
+          <button type="button" (click)="disminuir(i,medicina.nombreMedicamento)" style="margin-left: 0.5cm;"
+            class="btn btn-outline-danger">-</button>
+
+          
+        </td>
+      </tr>
+      <br>
+
+
+    </tbody>
+    <h4 style="text-align: center;">Total: {{ total | currency }}</h4>
+  </table>
+
+  <button (click)="enviarPedido()" class="btn btn-outline-success">Confirmar Pedido</button>
+
+</div>

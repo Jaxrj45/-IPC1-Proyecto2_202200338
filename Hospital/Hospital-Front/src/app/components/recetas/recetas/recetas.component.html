@@ -1,0 +1,35 @@
+<div class="container" style="text-align: center;">
+
+    <div class="row" style="text-align: center;">
+        <button  [routerLink]="['/principal']" type="button" class="btn btn-outline-info">Menu Principal</button>
+        <h1 class="display-5">Listado De Recetas</h1>  
+         
+      </div>
+      <img src="assets/recetaLogo.png" width="60" height="60" id="icon" alt="User Icon" /> 
+      <br>
+      <br>
+      <br>
+    <table class="table table-sm">
+        <thead>
+          <tr>
+            <th scope="col">Paciente</th>
+            <th scope="col">Fecha </th>
+            <th scope="col">Padecimiento</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Precio Consulta</th>
+          
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let receta of listadoRecetas">
+            <th scope="row">{{receta.nombrePaciente}}</th>
+            <td>{{receta.fechaGeneracion}}</td>
+            <td>{{receta.padecimiento}}</td>
+            <td>{{receta.Descripcion}}</td>
+            <td>{{receta.precioConsulta}}</td>
+           
+          </tr>
+         
+        </tbody>
+      </table>
+    </div>

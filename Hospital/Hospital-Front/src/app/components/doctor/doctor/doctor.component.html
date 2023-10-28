@@ -1,0 +1,40 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!-- Services section -->
+<div class="row" style="text-align: center;">
+    <button  [routerLink]="['/login']" type="button" class="btn btn-outline-danger">Cerrar Sesión</button>
+     
+  </div>
+	<section id="what-we-do">
+        <h2 class="section-title mb-2 h1">Menu Principal</h2>
+			<p class="text-center text-muted h5">Su salud es primero </p>
+		<div class="container-fluid" style="margin-left: 6cm;">
+			
+			<div class="row mt-5">
+				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+					<div class="card">
+						<div class="card-block block-1" style="text-align: center;">
+							<h3 class="card-title">Listado de Citas</h3>
+							<p class="card-text"> Puede visualizar las citas que usted debe atender y generar una receta para el Paciente</p>
+							<a [routerLink]="['/doctorListadoCitas']"  title="Read more" class="read-more" >Visualizar<i class="fa fa-angle-double-right ml-2"></i></a>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4" style="text-align: center;">
+					<div class="card">
+						<div class="card-block block-2">
+							<h3 class="card-title">Top Doctores</h3>
+							<p class="card-text">Se mostrar el listado de doctores con mas de 3 citas atendidas</p>
+							<a [routerLink]="['/topDoctores']" title="Read more" class="read-more" >Ver Doctores Top<i class="fa fa-angle-double-right ml-2"></i></a>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+			
+		</div>	
+	</section>
+	<!-- /Services section -->

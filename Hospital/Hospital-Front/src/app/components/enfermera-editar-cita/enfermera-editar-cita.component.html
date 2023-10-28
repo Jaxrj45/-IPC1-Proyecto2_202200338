@@ -1,0 +1,53 @@
+<div class="container" style="text-align: center;">
+    <form >
+    <div class="row" style="text-align: center;">
+        <button [routerLink]="['/login']" type="button" class="btn btn-outline-info">Cerrar Sesión</button>
+        <h1 class="display-5">Listado de Citas Pendientes</h1>
+
+    </div>
+    <img src="assets/cita-en-linea.png" width="60" height="60" id="icon" alt="User Icon" />
+    <br>
+    <br>
+    <br>
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <th scope="col">ID Cita</th>
+                <th scope="col">Paciente</th>
+                <th scope="col">Fecha </th>
+                <th scope="col">Hora</th>
+                <th scope="col">Motivo</th>
+                <th scope="col">Doctor</th>
+                <th scope="col">Estado</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cita of listaCitasPendientes"  >
+                
+                <th scope="row">{{cita._id}}</th>
+                <td>{{cita.nombrePaciente}}</td>
+                <td>{{cita.fecha}}</td>
+                <td>{{cita.hora}}</td>
+                <td>{{cita.motivo}}</td>
+                <td>
+                    <select class="form-select" style="text-align: center;" aria-label="Default select example"
+                        name="apellido" #apellido="ngModel" [(ngModel)]="cita.doctor">
+
+                        <option value="Juan">Juan</option>
+                        <option value="Sam">Sam</option>
+                        <option value="Andrea">Andrea</option>
+                        <option value="Estefany">Estefany</option>
+                    </select>
+                </td>
+                <td>
+                    <button type="button" name="aceptar" (click)="editarCitaF(cita._id,cita.doctor,cita.estado='Aceptado')" value="Aceptado" style="margin-right: 15px;" class="btn btn-outline-success">Aceptar</button>
+                    <button type="button" (click)="editarCitaF(cita._id,cita.doctor,cita.estado='Rechazado')" class="btn btn-outline-danger">Rechazado</button>
+                </td>
+
+            </tr>
+
+        </tbody>
+    </table>
+</form>
+</div>

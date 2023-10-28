@@ -1,0 +1,95 @@
+<div class="container" style="text-align: center;">
+
+    <div class="row" style="text-align: center;">
+        <button [routerLink]="['/doctorPrincipal']" type="button" class="btn btn-outline-info">Menu Principal</button>
+        <h1 class="display-5">Listado De Citas</h1>
+
+    </div>
+    <img src="assets/listadoCitaDoctorLogo.png" width="60" height="60" id="icon" alt="User Icon" />
+    <br>
+    <br>
+    <br>
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <th scope="col">Paciente</th>
+                <th scope="col">Fecha </th>
+                <th scope="col">Hora</th>
+                <th scope="col">Motivo</th>
+                <th scope="col">Doctor</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Receta</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cita of listaCitasDoctor">
+                <th scope="row">{{cita.nombrePaciente}}</th>
+                <td>{{cita.fecha}}</td>
+                <td>{{cita.hora}}</td>
+                <td>{{cita.motivo}}</td>
+                <td>{{cita.doctor}}</td>
+                <td>{{cita.estado}}</td>
+
+                <td>
+                    <button type="button" name="aceptar" (click)="guardandoDatos(cita.fecha,cita.nombrePaciente,cita._id)"
+                        value="crear" style="margin-right: 15px;" class="btn btn-outline-warning" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">Crear</button>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Receta</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h5>ID Paciente</h5>
+                <input type="text" readonly class="form-control" value={{idusuarioModal}} id="nombrePacienteModal" aria-describedby="emailHelp"
+                    placeholder="Enter email" name="nombrePaciente"
+                    #nombrePaciente="ngModel" [(ngModel)]="receta.nombrePaciente">
+                <br>
+                <h5>Nombre Paciente</h5>
+                <input type="text" class="form-control" readonly value={{nombreUsuarioModal}} id="nombrePacienteModal" aria-describedby="emailHelp"
+                    placeholder="Enter email" name="nombrePaciente"
+                    #nombrePaciente="ngModel" [(ngModel)]="receta.nombrePaciente">
+                <br>
+
+                <h5>Fecha</h5>
+                <input type="text" class="form-control" readonly [(ngModel)]="fechaModal" id="fechaModal" placeholder="Ingrese la fecha" name="fechaGeneracion"
+                    #fechaGeneracion="ngModel" [(ngModel)]="receta.fechaGeneracion">
+                <br>
+               
+                <h5>Padecimiento</h5>
+                <input type="email" class="form-control" id="Padecimiento" aria-describedby="emailHelp"
+                    placeholder="Ingrese el padecimiento de el paciente" name="padecimiento"
+                    #padecimiento="ngModel" [(ngModel)]="receta.padecimiento" >
+                <br>
+                <h5>Descripcion</h5>
+                <textarea class="form-control" id="Descripcion" rows="3"
+                name="Descripcion"
+                    #Descripcion="ngModel" [(ngModel)]="receta.Descripcion"
+                ></textarea>
+                <br>
+                <h5>Precio de la Consulta</h5>
+                <input type="number" class="form-control" id="precio" aria-describedby="emailHelp"
+                    placeholder="Ingrese el Precio" name="precioConsulta"
+                    #precioConsulta="ngModel" [(ngModel)]="receta.precioConsulta">
+            </div>
+            <div class="modal-footer">
+
+
+                <button type="button" (click)="hacerReceta(receta.padecimiento,receta.Descripcion,receta.precioConsulta)" style="text-align: center;" data-bs-dismiss="modal"
+                    class="btn btn-primary">Generar Cita</button>
+            </div>
+        </div>
+    </div>
+</div>
