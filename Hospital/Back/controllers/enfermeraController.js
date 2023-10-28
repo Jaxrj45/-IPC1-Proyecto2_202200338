@@ -5,8 +5,9 @@ const { listadoCitas } = require("./pacienteController");
 function modificarCitas(req, res) {
     let params = req.body;
     console.log(global.listadoCitas.length);
-    if (params._id && params.estado && params.doctor) {
+    if (params._id && params.estado ) {
         if (params.estado == 'Aceptado') {
+            if(params.doctor!="No asignado"){
             for (let i = 0; i < global.listadoCitas.length; i++) {
                 if (global.listadoCitas[i]._id == params._id) {
                     global.listadoCitas[i].estado = params.estado;
@@ -14,6 +15,9 @@ function modificarCitas(req, res) {
                 }
             }
             res.status(200).send({ message: "Cita Modificada", status: 1 });
+        }else{
+            res.status(200).send({ message: "Debes Seleccionar Un Doctor", status: 4 });
+        }
 
         } else {
             for (let i = 0; i < global.listadoCitas.length; i++) {

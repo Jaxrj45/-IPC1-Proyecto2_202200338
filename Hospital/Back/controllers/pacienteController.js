@@ -35,7 +35,9 @@ global.listadoMedicamentos = [
     { nombreMedicamento: "Panadol", precio: 5, cantidadDisponible: 10, cantidadSolicitada: 0, descripcion: "Analgésico y antipirético", unidadesVendidas: 0, subTotal: 0 },
     { nombreMedicamento: "Aspirina", precio: 4, cantidadDisponible: 10, cantidadSolicitada: 0, descripcion: "Medicamento que reduce el dolor, la fiebre, la inflamación y la coagulación de la sangre", unidadesVendidas: 0, subTotal: 0 },
     { nombreMedicamento: "Tabcin", precio: 3, cantidadDisponible: 10, cantidadSolicitada: 0, descripcion: "contiene Paracetamol que disminuye la fiebre y reduce el dolor, y Dextrometorfano que es un antitusivo que aminora el reflejo de la tos", unidadesVendidas: 0, subTotal: 0 },
-    { nombreMedicamento: "Aleve", precio: 2, cantidadDisponible: 10, cantidadSolicitada: 0, descripcion: "s el analgésico ideal para los fuertes dolores de cuerpo, articulaciones y espalda", unidadesVendidas: 0, subTotal: 0 }
+    { nombreMedicamento: "Aleve", precio: 2, cantidadDisponible: 10, cantidadSolicitada: 0, descripcion: "s el analgésico ideal para los fuertes dolores de cuerpo, articulaciones y espalda", unidadesVendidas: 0, subTotal: 0 },
+    { nombreMedicamento: "Acetaminofen", precio: 7, cantidadDisponible: 10, cantidadSolicitada: 0, descripcion: "sel analgésico ideal para los fuertes dolores de cuerpo, articulaciones y espalda", unidadesVendidas: 0, subTotal: 0 },
+    { nombreMedicamento: "SalAndrews", precio: 7.5, cantidadDisponible: 10, cantidadSolicitada: 0, descripcion: "s el analgésico ideal para los fuertes dolores de cuerpo, articulaciones y espalda", unidadesVendidas: 0, subTotal: 0 }
 ];
 
 
@@ -196,9 +198,9 @@ function comparMedicamentos(req, res) {
         res.status(200).send(pedido);
         arrayM = [];
         for (let i = 0; i < listadoMedicamentos.length; i++) {
-            listadoMedicamentos[i].subTotal=0;
-            listadoMedicamentos[i].cantidadSolicitada=0;
-            
+            listadoMedicamentos[i].subTotal = 0;
+            listadoMedicamentos[i].cantidadSolicitada = 0;
+
         }
 
     } else {
@@ -247,7 +249,7 @@ function eliminarMedicina(req, res) {
     } else {
         let idMedicamento = listadoMedicamentos.findIndex((j) => j.nombreMedicamento == arrayM[buscandoMedicina].nombreMedicamento);
         if (arrayM[buscandoMedicina].cantidadSolicitada <= 0) {
-            res.status(200).send({message:"Medicamento Agotado",status:2})
+            res.status(200).send({ message: "Medicamento Agotado", status: 2 })
         } else {
             arrayM[buscandoMedicina].cantidadSolicitada -= 1;
             listadoMedicamentos[idMedicamento].cantidadDisponible += 1
@@ -281,7 +283,7 @@ function verRecetas(req, res) {
 
 function verPedido(req, res) {
 
-    const pedidoEncontrado = listadoPedidos.filter(pedidoE => pedidoE.idComprador == usuarioLogeado._id );
+    const pedidoEncontrado = listadoPedidos.filter(pedidoE => pedidoE.idComprador == usuarioLogeado._id);
     if (pedidoEncontrado.length > 0) {
         res.status(200).send(pedidoEncontrado);
     } else {

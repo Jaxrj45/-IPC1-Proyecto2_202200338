@@ -44,7 +44,6 @@ export class MostrarCitasDoctorComponent implements OnInit {
           title: 'No tiene ninguna cita ',
           showConfirmButton: true,
           timer: 1500,
-
         });
       }
 
@@ -77,7 +76,7 @@ export class MostrarCitasDoctorComponent implements OnInit {
         });
       }
     })
-    this.ngOnInit();
+   
     
   }
   
